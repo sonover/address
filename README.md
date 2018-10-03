@@ -23,7 +23,7 @@ php artisan concord:modules -a
 +----+-----------------------+--------+---------+------------------+-----------------+
 | #  | Name                  | Kind   | Version | Id               | Namespace       |
 +----+-----------------------+--------+---------+------------------+-----------------+
-| 1. | Sonover Address Module | Module | 0.1.0   | sonover.address | Sonover\Address |
+| 1. | Sonover Address Module | Module | 0.2.0   | sonover.address | Sonover\Address |
 +----+-----------------------+--------+---------+------------------+-----------------+
 ```
 
