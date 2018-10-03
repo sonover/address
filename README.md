@@ -42,7 +42,7 @@ $contact->addAddress([
     'city' => 'Example City',
     'province' => 'St. George',
     'country' => 'GD',
-    'postalcode => 'GD-142'
+    'postalcode' => 'GD-142'
 ], 'shipping');
 ```
 
