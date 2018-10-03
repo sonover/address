@@ -2,8 +2,9 @@
 
 namespace Sonover\Address\Models;
 
-use Sonover\Address\Contracts\Address as AddressContract;
+use Illuminate\Database\Eloquent\Model;
 use Sonover\Address\Models\AddressTypeProxy;
+use Sonover\Address\Contracts\Address as AddressContract;
 
 
 trait Addressable {
