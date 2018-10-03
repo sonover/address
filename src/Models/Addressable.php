@@ -12,9 +12,30 @@ trait Addressable {
         return $this->morphMany(AddressProxy::modelClass(), 'addressable');
     }
 
-    public function addAddress($data, $type = AddressTypeProxy::__default) {
-        $data['type'] = isset($data['type']) ? $data['type'] : $type;
+    public function addAddress($data, $type = null) {
+        if($data instanceof Model){
+            $data = $data->toArray();
+        }
+        $data['type'] = is_null($type) ? AddressTypeProxy::defaultValue() : $type;
         return  $this->addresses()->create($data);
+    }
+
+    /** @test */
+    public function clone_an_address() {
+
+        $customer = Customer::create(['name' => 'Sonover Inc.']);
+        $billing = $customer->addAddress([
+            'address' => 'Spring',
+            'province' => 'St. George',
+            'country' => 'GD'
+        ], 'billing');
+
+        $shipping = $customer->addAddress($billing, 'shipping');
+
+        tap($customer->fresh(), function($customer) use ($shipping, $billing) {
+            $this->assertTrue($customer->billingAddress->contains($billing));
+            $this->assertTrue($customer->shippingAddress->contains($shipping));
+        });
     }
 
     /**

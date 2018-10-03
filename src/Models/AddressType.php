@@ -26,9 +26,12 @@ class AddressType extends Enum implements AddressTypeContract {
     /** Where a person lives */
     const RESIDENTIAL = 'residential';
     
-    /** To which ordered goods should be delivered */
+    /** To which ordered goods should be shipped */
     const SHIPPING = 'shipping';
     
+     /** To which ordered goods should be delivered */
+     const DELIVERY = 'delivery';
+
     /** Not specified */
     const UNDEFINED = null;
     
@@ -44,6 +47,7 @@ class AddressType extends Enum implements AddressTypeContract {
             self::PICKUP      => __('Pickup'),
             self::RESIDENTIAL => __('Residential'),
             self::SHIPPING    => __('Shipping'),
+            self::DELIVERY    => __('Delivery'),
             self::UNDEFINED   => __('Undefined')
         ];
     }
