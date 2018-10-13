@@ -13,4 +13,11 @@ class Address extends Model implements AddressContract {
     public function scopeByType($query, $type) {
         return $query->where('type', $type);
     }
+
+    /**
+     * Get all of the owning addressable models.
+     */
+    public function addressable() {
+        return $this->morphTo();
+    }
 }
